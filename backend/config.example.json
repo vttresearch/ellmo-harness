@@ -1,0 +1,93 @@
+{
+  "context_window_size": 32768,
+  "system_message": "You are a concise assistant connected to an interactive Unity client. Use enabled tools when the request needs external or application state. Treat tool results as evidence, state uncertainty clearly, and never claim that an action succeeded unless the corresponding tool result reports success.",
+  "mqtt": {
+    "enabled": false,
+    "host": "127.0.0.1",
+    "port": 1883,
+    "topic": "ellmo/outputs/stateJSON",
+    "qos": 0,
+    "keepalive": 60,
+    "client_id": "ellmo-harness-backend",
+    "reconnect_min_delay": 1,
+    "reconnect_max_delay": 30,
+    "username_env": "MQTT_USERNAME",
+    "password_env": "MQTT_PASSWORD"
+  },
+  "model_hosts": {
+    "Ollama - localhost": {
+      "provider": "ollama",
+      "host": "http://127.0.0.1:11434"
+    },
+    "OpenAI": {
+      "provider": "openai",
+      "api_key_env": "OPENAI_API_KEY",
+      "models": []
+    },
+    "OpenRouter": {
+      "provider": "openrouter",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "models": []
+    }
+  },
+  "tools": [
+    {
+      "name": "get_mqtt_telemetry",
+      "module": "tools.get_mqtt_telemetry",
+      "function": "get_mqtt_telemetry",
+      "enabled": true,
+      "description": "Read recent MQTT sensor values, statistics and configured threshold findings."
+    },
+    {
+      "name": "change_gameobject_color",
+      "module": "tools.change_gameobject_color",
+      "function": "change_gameobject_color",
+      "enabled": true,
+      "description": "Change the color of the configured GameObject renderer in Unity."
+    },
+    {
+      "name": "change_page",
+      "module": "tools.change_page",
+      "function": "change_page",
+      "enabled": true,
+      "description": "Change the displayed Unity document page."
+    },
+    {
+      "name": "query_sinamics_docs",
+      "module": "tools.query_sinamics_docs",
+      "function": "query_sinamics_docs",
+      "enabled": false,
+      "description": "Search a user-supplied SINAMICS V20 document."
+    },
+    {
+      "name": "query_local_document",
+      "module": "tools.query_local_document",
+      "function": "query_local_document",
+      "enabled": false,
+      "description": "Search one locally configured PDF, Markdown or text document."
+    },
+    {
+      "name": "get_user_pov",
+      "module": "tools.get_user_pov",
+      "function": "get_user_pov",
+      "enabled": false,
+      "description": "Capture a Unity camera frame and analyze it with a configured local vision model."
+    }
+  ],
+  "telemetry": {
+    "fields": {
+      "temperature": {
+        "aliases": [
+          "TEMP"
+        ],
+        "unit": "degC"
+      },
+      "pressure": {
+        "unit": "kPa"
+      },
+      "rpm": {
+        "unit": "rpm"
+      }
+    }
+  }
+}

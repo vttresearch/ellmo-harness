@@ -1,0 +1,12 @@
+fastapi==0.123.5
+pydantic==2.12.4
+requests==2.32.5
+ollama==0.6.1
+openai==3.8.0
+uvicorn[standard]==0.38.0
+paho-mqtt==2.1.0
+beautifulsoup4==4.13.5
+lxml==6.0.2
+pdfminer.six==20251107
+docling==2.75.0
+pypdfium2==5.13.0

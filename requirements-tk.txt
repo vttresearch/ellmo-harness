@@ -1,0 +1,4 @@
+# Optional rich rendering for the Tk client; install after the backend dependencies.
+tkinterweb==4.19.2
+tkinterweb-tkhtml==2.1.1
+markdown==3.10.2

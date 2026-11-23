@@ -1,0 +1,11 @@
+# Unity serializes meaningful empty scalar values with trailing spaces.
+*.asset -whitespace
+*.inputactions -whitespace
+*.cginc -whitespace
+*.hlsl -whitespace
+*.mat -whitespace
+*.meta -whitespace
+*.prefab -whitespace
+*.shader -whitespace
+*.shadergraph -whitespace
+*.unity -whitespace
